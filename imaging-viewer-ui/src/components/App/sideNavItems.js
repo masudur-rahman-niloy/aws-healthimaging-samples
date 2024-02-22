@@ -29,30 +29,30 @@ const sideNavItems = [
         href: '/settings',
     },
     { type: 'divider' },
-    {
-        type: 'link',
-        text: 'Amazon HeathLake Imaging',
-        href: 'https://aws.amazon.com/healthimaging',
-        external: true,
-    },
-    {
-        type: 'link',
-        text: 'AWS Amplify',
-        href: 'https://aws.amazon.com/amplify',
-        external: true,
-    },
-    {
-        type: 'link',
-        text: 'CornerstoneJS',
-        href: 'https://www.cornerstonejs.org',
-        external: true,
-    },
-    {
-        type: 'link',
-        text: 'HTJ2K',
-        href: 'https://htj2k.com',
-        external: true,
-    },
+    // {
+    //     type: 'link',
+    //     text: 'Amazon HeathLake Imaging',
+    //     href: 'https://aws.amazon.com/healthimaging',
+    //     external: true,
+    // },
+    // {
+    //     type: 'link',
+    //     text: 'AWS Amplify',
+    //     href: 'https://aws.amazon.com/amplify',
+    //     external: true,
+    // },
+    // {
+    //     type: 'link',
+    //     text: 'CornerstoneJS',
+    //     href: 'https://www.cornerstonejs.org',
+    //     external: true,
+    // },
+    // {
+    //     type: 'link',
+    //     text: 'HTJ2K',
+    //     href: 'https://htj2k.com',
+    //     external: true,
+    // },
 ];
 
 export { sideNavItems };

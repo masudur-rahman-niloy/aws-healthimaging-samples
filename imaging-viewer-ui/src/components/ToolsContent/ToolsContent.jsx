@@ -19,7 +19,7 @@ export default function ToolsContent() {
 
     const defaultHeader = (
         <Box variant="h3" textAlign="center">
-            AWS HealthImaging Sample Viewer
+            Shadhin Healthimaging Viewer
         </Box>
     );
 
