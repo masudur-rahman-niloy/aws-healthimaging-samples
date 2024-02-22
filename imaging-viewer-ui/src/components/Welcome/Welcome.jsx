@@ -75,7 +75,7 @@ function Welcome() {
     }
 
     return (
-        <ContentLayout header={<Header variant="h2">AWS HealthImaging Sample Viewer</Header>}>
+        <ContentLayout header={<Header variant="h2"> AWS HealthImaging Sample Viewer</Header>}>
             <Container footer={<Footer />}>
                 <Content />
             </Container>
