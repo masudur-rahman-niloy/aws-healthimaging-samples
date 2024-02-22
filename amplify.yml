@@ -17,7 +17,6 @@ applications:
             - npm run build
         postBuild:
           commands: 
-            - ./amplify-build/updateAmplifyRewriteRules.sh
       artifacts:
         baseDirectory: build
         files:
