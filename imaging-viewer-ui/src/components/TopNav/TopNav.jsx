@@ -65,9 +65,9 @@ export default function TopNav({ signOut, setAppTheme }) {
 
     const utilVisual = {
         type: 'menu-dropdown',
-        iconName: 'settings',
-        ariaLabel: 'Settings',
-        title: 'Settings',
+        // iconName: 'settings',
+        // ariaLabel: 'Settings',
+        // title: 'Settings',
         items: [
             {
                 id: 'theme',
@@ -132,7 +132,7 @@ export default function TopNav({ signOut, setAppTheme }) {
             <TopNavigation
                 identity={{
                     href: '',
-                    title: 'AWS HealthImaging Sample Viewer',
+                    title: 'Shadhin Healthimaging Viewer',
                 }}
                 utilities={navUtils}
                 i18nStrings={{

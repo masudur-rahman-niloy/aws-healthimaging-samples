@@ -19,7 +19,7 @@ export default function ToolsContent() {
 
     const defaultHeader = (
         <Box variant="h3" textAlign="center">
-            AWS HealthImaging Sample Viewer
+            Shadhin Healthimaging Viewer
         </Box>
     );
 
@@ -30,7 +30,7 @@ export default function ToolsContent() {
     function Footer({ additionalLinks = [] }) {
         return (
             <div>
-                <h3>Learn more</h3>
+                {/* <h3>Learn more</h3>
                 <Link external href="https://aws.amazon.com/healthimaging">
                     AWS HealthImaging
                 </Link>
@@ -40,7 +40,7 @@ export default function ToolsContent() {
                             {l.name}
                         </Link>
                     </p>
-                ))}
+                ))} */}
             </div>
         );
     }
