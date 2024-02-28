@@ -174,7 +174,7 @@ export default function Upload() {
     const inputS3Uri = process.env.REACT_APP_INPUTS3_URI;
     const outputS3Uri = process.env.REACT_APP_OUTPUTS3_URI;
 
-    console.log(inputS3Uri, outputS3Uri);
+    // console.log(inputS3Uri, outputS3Uri);
 
     // console.log(inputS3Uri);
     // console.log(outputS3Uri);
@@ -194,7 +194,7 @@ export default function Upload() {
         axios
             .post('https://v3ruyxwljb.execute-api.us-west-2.amazonaws.com/Prod/import', jobData, headers)
             .then((response) => {
-                console.log(response);
+                // console.log(response);
             })
             .catch((error) => {
                 console.log(error);
