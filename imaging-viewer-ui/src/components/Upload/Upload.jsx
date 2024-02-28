@@ -174,6 +174,8 @@ export default function Upload() {
     const inputS3Uri = process.env.REACT_APP_INPUTS3_URI;
     const outputS3Uri = process.env.REACT_APP_OUTPUTS3_URI;
 
+    console.log(inputS3Uri, outputS3Uri);
+
     // console.log(inputS3Uri);
     // console.log(outputS3Uri);
 
