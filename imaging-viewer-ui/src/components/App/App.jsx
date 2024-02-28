@@ -162,7 +162,7 @@ export default function App() {
         user: user,
         buildCrumb: buildCrumb,
         addFlashMessage: addFlashMessage,
-        setToolsOpen: setToolsOpen,
+        // setToolsOpen: setToolsOpen,
         datastores: datastores,
         datastoreLoadStatus: datastoreLoadStatus,
         getDatastores: getDatastores,
@@ -173,9 +173,12 @@ export default function App() {
         <AppContext.Provider value={appContextValue}>
             <TopNav signOut={signOut} setAppTheme={setAppTheme} />
             <AppLayout
-                tools={<ToolsContent />}
-                toolsOpen={toolsOpen}
-                onToolsChange={({ detail }) => setToolsOpen(detail.open)}
+                // tools={<ToolsContent />}
+                // toolsOpen={toolsOpen}
+                // onToolsChange={({ detail }) => setToolsOpen(detail.open)}
+                toolsOpen={false}
+                splitPanelOpen={false}
+                toolsHide={true}
                 notifications={
                     <Box>
                         <Flashbar items={flashbarItems} />

@@ -1,5 +1,6 @@
 const DEFAULT_SETTINGS = {
-    'app.region': { label: 'US East (N. Virginia)', value: 'us-east-1' },
+    // 'app.region': { label: 'US East (N. Virginia)', value: 'us-east-1' },
+    'app.region': { label: 'US West (Oregon)', value: 'us-west-2' },
     'app.controlPlaneEndpointOverride': '',
     'app.dataPlaneEndpointOverride': '',
     'app.apiTiming': { label: 'Off', value: false },

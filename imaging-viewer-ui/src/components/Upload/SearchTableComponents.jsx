@@ -58,7 +58,7 @@ function TableHeaderActions({ selectedDatastore, setSelectedDatastore, selectedI
     }
 
     return (
-        <SpaceBetween direction="horizontal" size="s">
+        <SpaceBetween className="header-margin-padding" direction="horizontal" size="s">
             <SelectDatastore selectedDatastore={selectedDatastore} setSelectedDatastore={setSelectedDatastore} />
             <Button
                 iconName="refresh"
@@ -66,12 +66,12 @@ function TableHeaderActions({ selectedDatastore, setSelectedDatastore, selectedI
                 onClick={() => getDatastores()}
                 disabled={datastoreLoadStatus.select === 'finished'}
             />
-            <Button disabled={actionButtonDisabled} onClick={() => handleViewMetadataClick()}>
+            {/* <Button disabled={actionButtonDisabled} onClick={() => handleViewMetadataClick()}>
                 View Metadata
             </Button>
             <Button onClick={() => handleViewImageClick()} disabled={actionButtonDisabled}>
                 View ImageSet
-            </Button>
+            </Button> */}
         </SpaceBetween>
     );
 }
@@ -133,51 +133,52 @@ export function TableHeader({
         }
     }
 
-    const inputS3Uri = process.env.REACT_APP_INPUTS3_URI;
-    const outputS3Uri = process.env.REACT_APP_OUTPUTS3_URI;
+    // const inputS3Uri = process.env.REACT_APP_INPUTS3_URI;
+    // const outputS3Uri = process.env.REACT_APP_OUTPUTS3_URI;
 
-    // console.log(inputS3Uri);
-    // console.log(outputS3Uri);
+    // // console.log(inputS3Uri);
+    // // console.log(outputS3Uri);
 
-    const jobData = {
-        dataStoreID: selectedDatastore,
-        inputS3Uri: inputS3Uri,
-        outputS3Uri: outputS3Uri,
-    };
-    const headers = {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-    };
+    // const jobData = {
+    //     dataStoreID: selectedDatastore,
+    //     inputS3Uri: inputS3Uri,
+    //     outputS3Uri: outputS3Uri,
+    // };
+    // const headers = {
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Origin': '*',
+    // };
 
-    const startImportJob = () => {
-        // console.log('jobData: ', jobData);
-        axios
-            .post('https://v3ruyxwljb.execute-api.us-west-2.amazonaws.com/Prod/import', jobData, headers)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
+    // const startImportJob = () => {
+    //     // console.log('jobData: ', jobData);
+    //     axios
+    //         .post('https://v3ruyxwljb.execute-api.us-west-2.amazonaws.com/Prod/import', jobData, headers)
+    //         .then((response) => {
+    //             console.log(response);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // };
 
     return (
         <>
             <Header
                 variant="awsui-h1-sticky"
-                counter={headerCounterText}
+                // counter={headerCounterText}
+                className="upload-margin"
                 actions={
                     <TableHeaderActions
                         selectedDatastore={selectedDatastore}
                         setSelectedDatastore={setSelectedDatastore}
-                        selectedImageSet={selectedImageSet}
+                        // selectedImageSet={selectedImageSet}
                         actionButtonDisabled={actionButtonDisabled}
                     />
                 }
             >
                 Upload
             </Header>
-            <form style={{ paddingTop: '1em' }} onSubmit={(e) => e.preventDefault()}>
+            {/* <form style={{ paddingTop: '1em' }} onSubmit={(e) => e.preventDefault()}>
                 <Form
                     actions={
                         <SpaceBetween direction="horizontal" size="xs">
@@ -235,7 +236,7 @@ export function TableHeader({
                         />
                     </ColumnLayout>
                 </Form>
-            </form>
+            </form> */}
         </>
     );
 }

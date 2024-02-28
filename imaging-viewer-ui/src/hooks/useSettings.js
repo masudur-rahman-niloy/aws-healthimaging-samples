@@ -9,7 +9,8 @@ export function useSettings() {
 
     // update API config with app settings
     useEffect(() => {
-        const region = appSettings['app.region']?.value || 'us-east-1';
+        // const region = appSettings['app.region']?.value || 'us-east-1';
+        const region = appSettings['app.region']?.value || 'us-west-2';
         const controlPlaneEndpoint =
             appSettings['app.controlPlaneEndpointOverride'] || `https://medical-imaging.${region}.amazonaws.com`;
         const dataPlaneEndpoint =

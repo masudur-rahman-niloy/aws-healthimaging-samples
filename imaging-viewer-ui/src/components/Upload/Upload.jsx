@@ -171,30 +171,101 @@ export default function Upload() {
         }
     }, [moreImageSets]);
 
-    const uploadFile = () => {
-        try {
-            value.map((file) => {
-                const type = file.type;
-                const name = file.name;
+    const inputS3Uri = process.env.REACT_APP_INPUTS3_URI;
+    const outputS3Uri = process.env.REACT_APP_OUTPUTS3_URI;
 
-                Storage.put(`upload/${name}`, file, {
-                    contentType: type,
-                    progressCallback(progress) {
-                        const percentUploaded = Math.round((progress.loaded / progress.total) * 100);
-                        setProcessing(percentUploaded);
+    // console.log(inputS3Uri);
+    // console.log(outputS3Uri);
 
-                        console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
-                    },
-                });
-            });
-            setVisibleProcessing(true);
-        } catch (error) {
-            console.log('Error uploading file: ', error);
-        }
+    const jobData = {
+        dataStoreID: selectedDatastore,
+        inputS3Uri: inputS3Uri,
+        outputS3Uri: outputS3Uri,
+    };
+    const headers = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
     };
 
+    const startImportJob = () => {
+        // console.log('jobData: ', jobData);
+        axios
+            .post('https://v3ruyxwljb.execute-api.us-west-2.amazonaws.com/Prod/import', jobData, headers)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+    const [count, setCount] = useState(0);
 
-    
+    useEffect(() => {
+        console.log(count);
+    }, [count]);
+
+    const uploadFile = async () => {
+        try {
+            setVisibleProcessing(true);
+            setCount(0);
+
+            // value.map((file) => {
+            //     const type = file.type;
+            //     const name = file.name;
+
+            //     Storage.put(`upload/${name}`, file, {
+            //         contentType: type,
+            //         progressCallback(progress) {
+            //             const percentUploaded = Math.round((progress.loaded / progress.total) * 100);
+            //             setProcessing(percentUploaded);
+
+            //             console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
+            //         },
+            //     });
+            //     setCount((prevCount) => prevCount + 1);
+            // });
+
+            await Promise.all(
+                value.map(async (file) => {
+                    const type = file.type;
+                    const name = file.name;
+
+                    // Upload file to Storage
+                    await Storage.put(`upload/${name}`, file, {
+                        contentType: type,
+                        progressCallback(progress) {
+                            const percentUploaded = Math.round((progress.loaded / progress.total) * 100);
+                            setProcessing(percentUploaded);
+                            console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
+                        },
+                    });
+
+                    // Increment the counter after successful upload
+                    setCount((prevCount) => prevCount + 1);
+                })
+            );
+
+            setValue([]);
+
+            setVisibleProcessing(false);
+
+            startImportJob();
+
+            addFlashMessage({
+                header: 'Upload',
+                content: 'File(s) uploaded successfully!',
+                type: 'success',
+            });
+        } catch (error) {
+            console.log('Error uploading file: ', error);
+            setVisibleProcessing(false);
+            addFlashMessage({
+                header: 'Upload',
+                content: 'Error uploading file. Please try again.',
+                type: 'error',
+            });
+        }
+    };
 
     return (
         <>
@@ -245,6 +316,7 @@ export default function Upload() {
                 //  wrapLines={preferences.wrapLines}
                 //stripedRows={preferences.stripedRows}
             />
+
             <FormField label="Upload dicom files" description="upload to s3">
                 <FileUpload
                     onChange={({ detail }) => setValue(detail.value)}
@@ -278,9 +350,11 @@ export default function Upload() {
                 ''
             )}
 
-            <Button variant="primary" type="submit" onClick={uploadFile}>
-                Upload
-            </Button>
+            {visibleProcessing === false && (
+                <Button variant="primary" type="submit" onClick={uploadFile}>
+                    Upload
+                </Button>
+            )}
         </>
     );
 }
