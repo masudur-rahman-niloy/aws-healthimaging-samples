@@ -9,6 +9,11 @@ const sideNavItems = [
     },
     {
         type: 'link',
+        text: 'Upload',
+        href: '/upload',
+    },
+    {
+        type: 'link',
         text: 'Search',
         href: '/search',
     },
@@ -17,11 +22,7 @@ const sideNavItems = [
         text: 'Metadata',
         href: '/metadata',
     },
-    {
-        type: 'link',
-        text: 'Upload',
-        href: '/upload',
-    },
+
     {
         type: 'link',
         text: 'Image Viewer',
