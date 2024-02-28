@@ -40,6 +40,7 @@ const Search = lazy(() => import('../Search'));
 const Metadata = lazy(() => import('../Metadata'));
 const ImageViewer = lazy(() => import('../ImageViewer'));
 const Settings = lazy(() => import('../Settings'));
+const Upload = lazy(() => import('../Upload'));
 
 // App Context
 const AppContext = createContext();
@@ -194,6 +195,8 @@ export default function App() {
                                 <Route path="/metadata" element={<Metadata />} />
                                 <Route path="/metadata/edit" element={<Metadata />} />
                                 <Route path="/viewer" element={<ImageViewer />} />
+                                <Route path="/upload" element={<Upload />} />
+
                                 <Route path="/settings" element={<Settings setAppSettings={setAppSettings} />} />
                                 <Route path="*" element={<Navigate to="/" replace />} />
                             </Routes>

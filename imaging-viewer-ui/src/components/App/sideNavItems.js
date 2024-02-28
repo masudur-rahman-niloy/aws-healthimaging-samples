@@ -19,15 +19,22 @@ const sideNavItems = [
     },
     {
         type: 'link',
+        text: 'Upload',
+        href: '/upload',
+    },
+    {
+        type: 'link',
         text: 'Image Viewer',
         href: '/viewer',
     },
+
     { type: 'divider' },
     {
         type: 'link',
         text: 'Settings',
         href: '/settings',
     },
+
     { type: 'divider' },
     // {
     //     type: 'link',
