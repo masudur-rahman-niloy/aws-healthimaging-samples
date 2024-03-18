@@ -41,10 +41,10 @@ function Welcome() {
                             the repository)
                         </li> */}
                     </ul>
-                    <p>
+                    {/* <p>
                         At any point, select the information icon <Icon name="status-info" /> on the top right of this
                         page for more information.
-                    </p>
+                    </p> */}
                 </Box>
             );
         } else {
