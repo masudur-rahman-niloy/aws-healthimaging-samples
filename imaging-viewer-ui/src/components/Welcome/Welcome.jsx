@@ -30,16 +30,16 @@ function Welcome() {
                             <ul>
                                 <li>Default: load, decode and view full image frames</li>
                                 <li>Progressive: load, decode and view image frames chunks at a time</li>
-                                <li>
+                                {/* <li>
                                     TLM: load, decode and view image frames one tile level marker level at a time
                                     (requires a TLM proxy, available in the repository)
-                                </li>
+                                </li> */}
                             </ul>
                         </li>
-                        <li>
+                        {/* <li>
                             (Optional) Override the Image Frame endpoint with a proxy (a CloudFront one is available in
                             the repository)
-                        </li>
+                        </li> */}
                     </ul>
                     <p>
                         At any point, select the information icon <Icon name="status-info" /> on the top right of this
