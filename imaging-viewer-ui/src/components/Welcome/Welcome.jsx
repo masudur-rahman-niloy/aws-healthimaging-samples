@@ -16,11 +16,11 @@ function Welcome() {
         if (isUserAuth(user)) {
             return (
                 <Box>
-                    <p>
+                    {/* <p>
                         This sample ReactJS-based webapp shows the art of the possible in using AWS HealthImaging to
                         view images.
-                    </p>
-                    <p>Currently this demo allows you to:</p>
+                    </p> */}
+                    <p>Welcome to DICOM Image Viewer. It currently allows us to do the following :</p>
                     <ul>
                         <li>View datastores</li>
                         <li>Search ImageSets</li>

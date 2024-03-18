@@ -29,12 +29,12 @@ const sideNavItems = [
         href: '/viewer',
     },
 
-    { type: 'divider' },
-    {
-        type: 'link',
-        text: 'Settings',
-        href: '/settings',
-    },
+    // { type: 'divider' },
+    // {
+    //     type: 'link',
+    //     text: 'Settings',
+    //     href: '/settings',
+    // },
 
     { type: 'divider' },
     // {
